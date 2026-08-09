@@ -1,7 +1,7 @@
 # Especificación de Arquitectura del Backend (.NET)
 
 > KrestOne — _One Path Every Destination_
-> Última revisión: 2026-08-08
+> Última revisión: 2026-08-09
 
 ## 1. Propósito y contexto
 
@@ -247,20 +247,31 @@ Actualmente **no existen test projects**; se establece la estructura objetivo:
 - Mientras tanto, el backend se mantiene **12-factor ready**:
   - Configuración por entorno (variables de entorno).
   - Stateless: sin estado en memoria dependiente de una instancia.
-  - Contenedores como formato de entrega preferido (Dockerfile en `backend/`).
+  - Contenedores como formato de entrega preferido: la definición del
+    **Dockerfile en `backend/` es un objetivo** (ver roadmap, sección 14), no
+    una pieza ya existente.
   - `dotnet build KrestOneService.slnx` como verificación mínima de salud.
+
+### Ejecución local
+
+- Perfiles definidos en `Properties/launchSettings.json`:
+  - `http`: `http://localhost:5202`
+  - `https`: `https://localhost:7199` + `http://localhost:5202`
+- Ambos perfiles fijan `ASPNETCORE_ENVIRONMENT=Development`; solo ese entorno
+  expone OpenAPI (ver sección 11).
+- `appsettings.Development.json` **no se versiona**: está excluido por
+  `.gitignore` para evitar que configuraciones locales o secretos de desarrollo
+  lleguen al repositorio.
 
 ## 14. Roadmap (siguientes pasos ordenados)
 
-1. **Limpiar el scaffold**: eliminar el endpoint `/weatherforecast` y los
-   placeholders restantes.
-2. **Definir el dominio**: primer agregado/entidad de negocio real en `Domain`.
-3. **Decidir persistencia**: evaluar proveedor y redactar
+1. **Definir el dominio**: primer agregado/entidad de negocio real en `Domain`.
+2. **Decidir persistencia**: evaluar proveedor y redactar
    `docs/architecture/data.md`.
-4. **Levantar la capa Application**: primer servicio de aplicación con su
+3. **Levantar la capa Application**: primer servicio de aplicación con su
    interfaz, DTOs y validación.
-5. **Implementar repositorios** en `Infrastructure`.
-6. **Crear los test projects** y adoptar la estrategia de la sección 12.
-7. **Definir despliegue** y Dockerfile.
-8. Redactar la **especificación de la API HTTP** (contratos, versionado) en
+4. **Implementar repositorios** en `Infrastructure`.
+5. **Crear los test projects** y adoptar la estrategia de la sección 12.
+6. **Definir despliegue** y Dockerfile.
+7. Redactar la **especificación de la API HTTP** (contratos, versionado) en
    cuanto existan endpoints reales.
