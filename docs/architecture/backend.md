@@ -238,7 +238,7 @@ Actualmente **no existen test projects**; se establece la estructura objetivo:
   repositorios contra el proveedor real (local), clientes de `Extender` con
   contenedores/sandboxes.
 - Regla: el código se considera completo solo cuando sus pruebas relevantes
-  pasan y el proyecto compila.
+  pasan, el proyecto compila y `dotnet format` no detecta cambios (ver §13).
 
 Esta sección (junto con la sección 13) es la **fuente canónica** de la
 definición de "código completo" y de verificación del backend. Los archivos
@@ -256,6 +256,9 @@ duplican estas reglas.
     **Dockerfile en `backend/` es un objetivo** (ver roadmap, sección 14), no
     una pieza ya existente.
   - `dotnet build KrestOneService.slnx` como verificación mínima de salud.
+  - `dotnet format KrestOneService.slnx --verify-no-changes` como gate de
+    estilo (aplica `.editorconfig` + `Directory.Build.props`; el build ya
+    trata warnings como errores vía `TreatWarningsAsErrors`).
 
 ### Ejecución local
 
