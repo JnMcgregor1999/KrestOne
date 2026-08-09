@@ -242,7 +242,7 @@ Actualmente **no existen test projects**; se establece la estructura objetivo:
 
 Esta sección (junto con la sección 13) es la **fuente canónica** de la
 definición de "código completo" y de verificación del backend. Los archivos
-raíz y subagentes (`AGENTS.md`, `CLAUDE.md`, `agent/`) solo la referencian y no
+raíz y subagentes (`AGENTS.md`, `.opencode/agent/`) solo la referencian y no
 duplican estas reglas.
 
 ## 13. Despliegue

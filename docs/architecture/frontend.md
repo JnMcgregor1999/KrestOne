@@ -156,7 +156,7 @@ como fuente.
 
 Esta sección (junto con las secciones 3 y 5) es la **fuente canónica** de las
 convenciones y los quality gates del frontend. Los archivos raíz y subagentes
-(`AGENTS.md`, `CLAUDE.md`, `agent/`) solo la referencian y no duplican estas
+(`AGENTS.md`, `.opencode/agent/`) solo la referencian y no duplican estas
 reglas.
 
 ## 8. Roadmap (siguientes pasos ordenados)
