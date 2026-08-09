@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Two-app monorepo: `backend/` (.NET 10 web API) + `frontend/` (Angular 22). Not a git repo (no `.git`).
+Two-app monorepo: `backend/` (.NET 10 web API) + `frontend/` (Angular 22). Git repo on `main` with remote `origin` (GitHub).
 
 **Source of truth is `docs/`.** Read it before touching code and never contradict it silently:
 
