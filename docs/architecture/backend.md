@@ -39,15 +39,16 @@ Solución: `backend/KrestOneService.slnx`
 | `FactorK.KrestOne.Service.Api`            | Punto de entrada, composición de DI, HTTP, middleware, OpenAPI                    | Los otros 4             |
 | `FactorK.KrestOne.Service.Application`    | Casos de uso, servicios de aplicación, DTOs, validación, contratos de repositorio | `Domain`                |
 | `FactorK.KrestOne.Service.Domain`         | Entidades, Value Objects, Domain Events, enums, lógica de negocio pura            | **Ninguna**             |
-| `FactorK.KrestOne.Service.Extender`       | Integraciones externas (adaptadores a servicios de terceros)                      | `Application`, `Domain` |
+| `FactorK.KrestOne.Service.Extender`       | Integraciones externas (adaptadores a servicios de terceros)                      | `Application` (+ `Domain` solo si lo requiere) |
 | `FactorK.KrestOne.Service.Infrastructure` | Persistencia, repositorios, configuración de bajo nivel                           | `Application`, `Domain` |
 
 ### Reglas de dependencia (invariantes)
 
 - `Domain` **no referencia** nada.
 - `Application` solo referencia `Domain`.
-- `Extender` e `Infrastructure` solo referencian `Application` y `Domain`, nunca
-  entre sí.
+- `Extender` e `Infrastructure` referencian `Application` y, como máximo,
+  `Domain` (`Domain` solo si lo necesitan); nunca entre sí ni a capas
+  superiores.
 - `Api` referencia todos los proyectos, pero **no contiene lógica de negocio**:
   solo orquestación de arranque y definición del contrato HTTP.
 - Ninguna capa inferior conoce HTTP, DI ni configuración de la aplicación.
