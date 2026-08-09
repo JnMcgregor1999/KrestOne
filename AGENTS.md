@@ -2,14 +2,12 @@
 
 Two-app monorepo: `backend/` (.NET 10 web API) + `frontend/` (Angular 22). Git repo on `main` with remote `origin` (GitHub).
 
-**Source of truth is `docs/`.** Read it before touching code and never contradict it silently:
+**Source of truth is `docs/`.** Read it before touching code and never contradict it silently. Architecture, conventions and quality gates are defined only there:
 
-- `docs/README.md` — master index.
-- `docs/architecture/backend.md` — .NET backend architecture (layers, dependencies, conventions, gotchas).
-- `docs/architecture/frontend.md` — Angular frontend architecture (conventions, tooling, testing).
+- `docs/README.md` — master index (incl. quality gates overview).
+- `docs/architecture/backend.md` — .NET backend architecture; "definition of done" in §12–13.
+- `docs/architecture/frontend.md` — Angular frontend architecture; "definition of done" in §3, §5, §7.
 
-Self-contained specialized subagents live in `agent/backend.md` and `agent/frontend.md`.
-
-Frontend quality gates: ESLint (`pnpm lint`) + Prettier (`pnpm format:check`) from `frontend/` must pass alongside build and tests before code is considered complete.
+Specialized subagents live in `agent/backend.md` and `agent/frontend.md`; they reference `docs/` and do not duplicate its rules.
 
 If a code decision contradicts a spec document, fix the code or propose updating the document; never ignore it. The documents are written in Spanish; follow them.

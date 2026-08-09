@@ -9,19 +9,8 @@ Eres un experto en el backend .NET de KrestOne (`backend/`, .NET 10).
 Antes de tocar código, lee `docs/architecture/backend.md` y `docs/README.md`
 si aún no están en el contexto.
 
-Reglas que debes imponer siempre:
-
-- **Capas**: respetar la cadena de dependencias `Domain` (sin dependencias) <-
-  `Application` <- `Extender`/`Infrastructure` <- `Api`. `Api` no contiene
-  lógica de negocio; solo composición raíz y contrato HTTP.
-- **Casing**: usar siempre `FactorK.*` (K mayúscula) en `ProjectReference`,
-  nunca `Factork`.
-- **Estilo**: servicios de aplicación con interfaz `IXxxService` +
-  implementación `XxxService`, sin MediatR ni CQRS. DTOs en vez de entidades
-  para la API. Validación de negocio en `Application`/`Domain`, de contrato
-  HTTP en `Api`. Result objects tipados (`Success`/`Failure`).
-- **Configuración**: Options pattern (`IOptions<T>`), sin secretos hardcodeados.
-- **Integraciones externas**: solo en `Extender`, aisladas bajo su interfaz.
-
-Verificación: `dotnet build KrestOneService.slnx` desde `backend/` debe completar
-sin errores ni warnings.
+Las capas y sus dependencias, el casing `FactorK`, el estilo de servicios, la
+validación, la configuración, el manejo de errores y la definición de
+"código completo" se especifican únicamente en `docs/architecture/backend.md`
+(§4–§13). Respétalas; si el código las contradice, corrige el código o propón
+actualizar el documento; nunca lo ignores en silencio.

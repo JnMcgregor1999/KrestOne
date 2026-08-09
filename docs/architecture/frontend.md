@@ -90,6 +90,14 @@ como fuente.
 
 ## 5. Convenciones de código
 
+### TypeScript estricto
+
+- `tsconfig.json` (base) fija `strict: true`, `noUnusedLocals: true` y
+  `noUnusedParameters: true`; `angularCompilerOptions` fija
+  `strictTemplates: true`.
+- El código no deja variables, parámetros ni imports sin usar; los miembros de
+  clase muertos se eliminan, no se silencian.
+
 ### Standalone + signals
 
 - Componentes **standalone**: sin `NgModule`, se registran por importación
@@ -145,6 +153,11 @@ como fuente.
 - Regla: el código se considera completo solo cuando sus tests relevantes
   pasan, `pnpm lint` y `pnpm format:check` están limpios y `pnpm build`
   compila.
+
+Esta sección (junto con las secciones 3 y 5) es la **fuente canónica** de las
+convenciones y los quality gates del frontend. Los archivos raíz y subagentes
+(`AGENTS.md`, `CLAUDE.md`, `agent/`) solo la referencian y no duplican estas
+reglas.
 
 ## 8. Roadmap (siguientes pasos ordenados)
 

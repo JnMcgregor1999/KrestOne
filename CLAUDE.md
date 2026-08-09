@@ -17,16 +17,16 @@ No contradecir la especificación: si una decisión de código contradice un
 documento, corregir el código o proponer la actualización del documento; nunca
 ignorarlo en silencio.
 
-## Calidad del frontend
+## Calidad
 
-En tareas de `frontend/`, además de build y tests, deben pasar ESLint
-(`pnpm lint`) y Prettier (`pnpm format:check`) desde `frontend/`. Solo así el
-código se considera completo.
+La arquitectura, las convenciones y los quality gates del backend y del
+frontend se definen únicamente en `docs/architecture/backend.md` (§12–§13) y
+`docs/architecture/frontend.md` (§3, §5 y §7). Este archivo no las duplica.
 
 ## Referencia
 
-Para detalles completos (estructura, verificación, gotchas), leer `AGENTS.md`,
-`docs/README.md` y `docs/architecture/`.
-
-Los subagentes especializados autocontenidos viven en `agent/backend.md` y
-`agent/frontend.md`.
+- Índice maestro: `docs/README.md`.
+- Arquitectura backend: `docs/architecture/backend.md`.
+- Arquitectura frontend: `docs/architecture/frontend.md`.
+- Subagentes que referencian `docs/` (no duplican sus reglas):
+  `agent/backend.md` y `agent/frontend.md`.
