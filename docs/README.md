@@ -40,6 +40,13 @@ con estas reglas sin repetirlas en cada sesión:
 Estos archivos son un reflejo de las reglas de este documento: si cambia una
 regla aquí, debe reflejarse también en ellos.
 
+## Referencias rápidas
+
+- `README.md` (raíz) — presentación del monorepo e índice hacia `docs/`.
+- `frontend/README.md` — referencia local del subproyecto `frontend/`
+  (herramientas y comandos), coherente con
+  `docs/architecture/frontend.md`.
+
 ## Cómo evolucionar esta documentación
 
 - Cada documento vive en `docs/` y sigue la estructura de su propia tabla de
