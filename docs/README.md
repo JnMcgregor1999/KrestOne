@@ -33,13 +33,12 @@ con estas reglas sin repetirlas en cada sesión:
 
 | Herramienta | Archivo | Contenido |
 | --- | --- | --- |
-| Claude Code | `CLAUDE.md` (raíz) | Índice que referencia `docs/` (reglas y documentos de arquitectura) |
 | opencode | `AGENTS.md` (raíz) | Instrucciones y referencia a `docs/` |
-| opencode | `agent/` (raíz) | Subagentes `backend.md` y `frontend.md` especializados que referencian `docs/` (no duplican sus reglas) |
+| opencode | `.opencode/agent/` (raíz) | Subagentes `backend.md` y `frontend.md` especializados que referencian `docs/` (no duplican sus reglas) |
 
 Estos archivos no duplican las reglas de `docs/`: solo las referencian. Cualquier
 regla o convención nueva se documenta primero aquí y luego se refleja en los
-punteros de `AGENTS.md`, `CLAUDE.md` y `agent/`.
+punteros de `AGENTS.md` y `.opencode/agent/`.
 
 ## Referencias rápidas
 
@@ -56,7 +55,7 @@ documentos de arquitectura:
 - Backend: `docs/architecture/backend.md` (§12 y §13).
 - Frontend: `docs/architecture/frontend.md` (§3, §5 y §7).
 
-`AGENTS.md`, `CLAUDE.md` y `agent/` no los repiten; referéncialos a estas
+`AGENTS.md` y `.opencode/agent/` no los repiten; referéncialos a estas
 secciones.
 
 ## Cómo evolucionar esta documentación
@@ -67,5 +66,5 @@ secciones.
   documento se actualiza (es la fuente de verdad).
 - Un documento se marca como "Pendiente" hasta que la sección de roadmap del
   documento correspondiente la cierre.
-- Las reglas y los gates se documentan **solo aquí**; `AGENTS.md`, `CLAUDE.md`
-  y `agent/` no los duplican, solo los referencian.
+- Las reglas y los gates se documentan **solo aquí**; `AGENTS.md` y
+  `.opencode/agent/` no los duplican, solo los referencian.

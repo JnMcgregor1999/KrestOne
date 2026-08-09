@@ -39,15 +39,16 @@ Solución: `backend/KrestOneService.slnx`
 | `FactorK.KrestOne.Service.Api`            | Punto de entrada, composición de DI, HTTP, middleware, OpenAPI                    | Los otros 4             |
 | `FactorK.KrestOne.Service.Application`    | Casos de uso, servicios de aplicación, DTOs, validación, contratos de repositorio | `Domain`                |
 | `FactorK.KrestOne.Service.Domain`         | Entidades, Value Objects, Domain Events, enums, lógica de negocio pura            | **Ninguna**             |
-| `FactorK.KrestOne.Service.Extender`       | Integraciones externas (adaptadores a servicios de terceros)                      | `Application`, `Domain` |
+| `FactorK.KrestOne.Service.Extender`       | Integraciones externas (adaptadores a servicios de terceros)                      | `Application` (+ `Domain` solo si lo requiere) |
 | `FactorK.KrestOne.Service.Infrastructure` | Persistencia, repositorios, configuración de bajo nivel                           | `Application`, `Domain` |
 
 ### Reglas de dependencia (invariantes)
 
 - `Domain` **no referencia** nada.
 - `Application` solo referencia `Domain`.
-- `Extender` e `Infrastructure` solo referencian `Application` y `Domain`, nunca
-  entre sí.
+- `Extender` e `Infrastructure` referencian `Application` y, como máximo,
+  `Domain` (`Domain` solo si lo necesitan); nunca entre sí ni a capas
+  superiores.
 - `Api` referencia todos los proyectos, pero **no contiene lógica de negocio**:
   solo orquestación de arranque y definición del contrato HTTP.
 - Ninguna capa inferior conoce HTTP, DI ni configuración de la aplicación.
@@ -238,11 +239,11 @@ Actualmente **no existen test projects**; se establece la estructura objetivo:
   repositorios contra el proveedor real (local), clientes de `Extender` con
   contenedores/sandboxes.
 - Regla: el código se considera completo solo cuando sus pruebas relevantes
-  pasan y el proyecto compila.
+  pasan, el proyecto compila y `dotnet format` no detecta cambios (ver §13).
 
 Esta sección (junto con la sección 13) es la **fuente canónica** de la
 definición de "código completo" y de verificación del backend. Los archivos
-raíz y subagentes (`AGENTS.md`, `CLAUDE.md`, `agent/`) solo la referencian y no
+raíz y subagentes (`AGENTS.md`, `.opencode/agent/`) solo la referencian y no
 duplican estas reglas.
 
 ## 13. Despliegue
@@ -256,6 +257,9 @@ duplican estas reglas.
     **Dockerfile en `backend/` es un objetivo** (ver roadmap, sección 14), no
     una pieza ya existente.
   - `dotnet build KrestOneService.slnx` como verificación mínima de salud.
+  - `dotnet format KrestOneService.slnx --verify-no-changes` como gate de
+    estilo (aplica `.editorconfig` + `Directory.Build.props`; el build ya
+    trata warnings como errores vía `TreatWarningsAsErrors`).
 
 ### Ejecución local
 

@@ -14,5 +14,5 @@ antes de tocar código:
 - [`docs/architecture/backend.md`](docs/architecture/backend.md) — arquitectura del backend.
 - [`docs/architecture/frontend.md`](docs/architecture/frontend.md) — arquitectura del frontend.
 
-Para configurar a los agentes de IA de cada herramienta, ver `AGENTS.md`,
-`CLAUDE.md` y los subagentes de `agent/`.
+Para configurar a los agentes de IA de cada herramienta, ver `AGENTS.md` y los
+subagentes de `.opencode/agent/`.
