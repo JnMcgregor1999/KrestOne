@@ -240,6 +240,11 @@ Actualmente **no existen test projects**; se establece la estructura objetivo:
 - Regla: el código se considera completo solo cuando sus pruebas relevantes
   pasan y el proyecto compila.
 
+Esta sección (junto con la sección 13) es la **fuente canónica** de la
+definición de "código completo" y de verificación del backend. Los archivos
+raíz y subagentes (`AGENTS.md`, `CLAUDE.md`, `agent/`) solo la referencian y no
+duplican estas reglas.
+
 ## 13. Despliegue
 
 - Objetivo de despliegue: **aún no definido** (Azure App Services, contenedores
