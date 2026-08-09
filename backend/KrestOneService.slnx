@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="FactorK.KrestOne.Service.Api/FactorK.KrestOne.Service.Api.csproj" />
+  <Project Path="FactorK.KrestOne.Service.Application/FactorK.KrestOne.Service.Application.csproj" />
+  <Project Path="FactorK.KrestOne.Service.Domain/FactorK.KrestOne.Service.Domain.csproj" />
+  <Project Path="FactorK.KrestOne.Service.Extender/FactorK.KrestOne.Service.Extender.csproj" />
+  <Project Path="FactorK.KrestOne.Service.Infrastructure/FactorK.KrestOne.Service.Infrastructure.csproj" />
+</Solution>
