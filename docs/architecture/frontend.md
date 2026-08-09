@@ -1,7 +1,7 @@
 # Especificación de Arquitectura del Frontend (Angular)
 
 > KrestOne — _One Path Every Destination_
-> Última revisión: 2026-08-08
+> Última revisión: 2026-08-09
 
 ## 1. Propósito y contexto
 
@@ -76,6 +76,8 @@ frontend/
 ├── public/                   # assets estáticos (favicon.ico)
 ├── angular.json
 ├── eslint.config.js          # flat config de ESLint (@angular-eslint + prettier)
+├── .editorconfig             # reglas de editor (indentación, fin de línea)
+├── .postcssrc.json           # configuración de PostCSS (@tailwindcss/postcss)
 ├── .prettierignore           # excluye node_modules/, dist/, .angular/, pnpm-lock.yaml
 ├── package.json
 ├── pnpm-lock.yaml

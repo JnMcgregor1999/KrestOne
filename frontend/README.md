@@ -1,25 +1,27 @@
 # KrestOneWeb
 
-Angular 22 frontend of KrestOne — _One Path Every Destination_.
+Frontend Angular 22 de KrestOne — _One Path Every Destination_.
 
-The source of truth for this project is `docs/` at the repository root.
-Read `docs/README.md` and `docs/architecture/frontend.md` before changing code.
+La fuente de verdad de este proyecto es `docs/` en la raíz del repositorio.
+Lee `docs/README.md` y `docs/architecture/frontend.md` antes de cambiar código.
 
-## Tooling
+## Herramientas
 
-- Package manager: **pnpm** only (`pnpm@11.20.0`). Never npm/yarn.
-- Stack: standalone components, signal-reactivity, Tailwind v4 (CSS-first).
-- Linting: ESLint flat config (`eslint.config.js`, @angular-eslint + typescript-eslint).
-- Formatting: Prettier (`.prettierrc`).
+- Package manager: **solo pnpm** (`pnpm@11.20.0`). Nunca npm/yarn.
+- Stack: standalone components, signal-reactividad, Tailwind v4 (CSS-first).
+- Lint: ESLint flat config (`eslint.config.js`, @angular-eslint + typescript-eslint).
+- Formato: Prettier (`.prettierrc`).
 
-## Commands (run from `frontend/`)
+## Comandos (desde `frontend/`)
 
-- `pnpm start` — development server on :4200.
-- `pnpm build` — production build (outputs to `dist/`).
-- `pnpm test` — unit tests (Vitest). For a single pass: `pnpm test --watch=false`.
-  Do **not** pass `-- --run` to `ng test`: it fails the builder validation.
-- `pnpm lint` — ESLint over `src/**/*.ts` and `src/**/*.html`.
-- `pnpm format` — Prettier write over the repo (respects `.prettierignore`).
-- `pnpm format:check` — Prettier check (no file changes).
+- `pnpm start` — servidor de desarrollo en :4200.
+- `pnpm build` — build de producción (salida en `dist/`).
+- `pnpm test` — tests unitarios (Vitest). Para una sola pasada:
+  `pnpm test --watch=false`. **No** pasar `-- --run` a `ng test`: falla la
+  validación del builder.
+- `pnpm lint` — ESLint sobre `src/**/*.ts` y `src/**/*.html`.
+- `pnpm format` — Prettier en modo write sobre el repo (respeta `.prettierignore`).
+- `pnpm format:check` — Prettier en modo check (no modifica archivos).
 
-Code is considered complete only when lint, format:check, tests and build pass.
+El código se considera completo solo cuando pasan lint, format:check, tests y
+build.
